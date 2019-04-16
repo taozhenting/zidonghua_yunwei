@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from 系统基础信息模块.ipy import IP
+from ipy import IP
 
 ip = IP('192.168.0.0/31')
 print "输出192.168.0.0/31网段的IP个数"

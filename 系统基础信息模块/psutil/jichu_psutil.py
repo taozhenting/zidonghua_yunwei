@@ -1,63 +1,63 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import 系统基础信息模块.psutil,datetime
+import psutil,datetime
 from subprocess import PIPE
 
 #cpu信息
 print "获取cpu完整信息，需要显示所有逻辑cpu信息，指定方法变量percpu=True即可。"
-print 系统基础信息模块.psutil.cpu_times()
+print psutil.cpu_times()
 print "获取单项数据，如用户cpu的cpu时间比"
-print 系统基础信息模块.psutil.cpu_times().user
+print psutil.cpu_times().user
 print "获取cpu的逻辑个数，默认logical=True"
-print 系统基础信息模块.psutil.cpu_count()
+print psutil.cpu_count()
 print "获取cpu的物理个数"
-print 系统基础信息模块.psutil.cpu_count(logical=False)
+print psutil.cpu_count(logical=False)
 print
 
 #内存信息
 print "获取内存完整信息"
-mem = 系统基础信息模块.psutil.virtual_memory()
+mem = psutil.virtual_memory()
 print mem
 print "获取内存总数"
 print mem.total
 print "获取空闲内存数"
 print mem.free
 print "获取swap分区信息"
-print 系统基础信息模块.psutil.swap_memory()
+print psutil.swap_memory()
 print
 
 #磁盘信息
 print "获取磁盘完整信息"
-print 系统基础信息模块.psutil.disk_partitions()
+print psutil.disk_partitions()
 print "获取分区（参数）的使用情况"
-print 系统基础信息模块.psutil.disk_usage('/')
+print psutil.disk_usage('/')
 print "获取硬盘总的IO个数，读写情况"
-print 系统基础信息模块.psutil.disk_io_counters()
+print psutil.disk_io_counters()
 print "perdisk=True参数获取单个分区IO个数，读写情况"
-print 系统基础信息模块.psutil.disk_io_counters(perdisk=True)
+print psutil.disk_io_counters(perdisk=True)
 print
 
 #网络信息
 print "获取网络总的IO信息，默认pernic=False"
-print 系统基础信息模块.psutil.net_io_counters()
+print psutil.net_io_counters()
 print "pernic=True输出每个网络接口的IO信息"
-print 系统基础信息模块.psutil.net_io_counters(pernic=True)
+print psutil.net_io_counters(pernic=True)
 print
 
 #其他系统信息
 print "返回当前登录系统的用户信息"
-print 系统基础信息模块.psutil.users()
+print psutil.users()
 print "获取开机时间，以linux时间戳格式返回"
-print 系统基础信息模块.psutil.boot_time()
+print psutil.boot_time()
 print "转换成自然时间格式"
-print datetime.datetime.fromtimestamp(系统基础信息模块.psutil.boot_time()).strftime("%Y-%m-%d %H:%M:%S")
+print datetime.datetime.fromtimestamp(psutil.boot_time()).strftime("%Y-%m-%d %H:%M:%S")
 print
 
 #进程信息
 print "列出所有进程PID"
-print 系统基础信息模块.psutil.pids()
+print psutil.pids()
 print "实例化一个Process对象，参数为一进程PID"
-p = 系统基础信息模块.psutil.Process(25672)
+p = psutil.Process(25672)
 print "进程名"
 print p.name()
 print "进程bin路径"
@@ -90,7 +90,7 @@ print
 
 #popen类的使用
 print "通过psutil的Popen方法启动的应用程序，可以跟踪该程序运行的所有相关信息"
-p = 系统基础信息模块.psutil.Popen(["/usr/bin/python", "-c", "print('hello')"], stdout=PIPE)
+p = psutil.Popen(["/usr/bin/python", "-c", "print('hello')"], stdout=PIPE)
 print p.name()
 print p.username()
 print p.communicate()
