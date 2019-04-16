@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from IPy import IP
+from 系统基础信息模块.ipy import IP
 
 #接收用户输入，参数为IP地址或网段地址
 ip_s = raw_input('Please input an IP or net-range: ')
