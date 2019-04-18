@@ -34,6 +34,15 @@ msg = MIMEText("""
         </tr>
     </table>""","html","utf-8")
 
+'''
+msg = ("""
+name: %(name)s
+age: %(age)d
+""")
+
+print (msg % dict(name="Tim Wang", age=45))
+'''
+
 #邮件主题
 msg['Subject'] = SUBJECT
 #邮件发件人，邮件头部可见
