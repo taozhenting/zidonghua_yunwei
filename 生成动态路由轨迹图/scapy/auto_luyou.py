@@ -21,7 +21,7 @@ if len(target) >= 1 and target[0] != '':
     res,unans = traceroute(target, dport = dport, retry = -2)
     #生成svg矢量图形
     #res.graph(target = "> test.svg")
-    res.graph(target="> ./test.svg", ASres=AS_resolver_radb(), type="svg")
+    res.graph(target="> ./test.svg", ASres=AS_resolver_radb())
     time.sleep(1)
     #svg转png格式
     subprocess.Popen("/usr/bin/convert ./test.svg ./test.png", shell=True)
