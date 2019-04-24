@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from 系统批量运维管理器.pexpect import pxssh
+from pexpect import pxssh
 import getpass
 
 try:

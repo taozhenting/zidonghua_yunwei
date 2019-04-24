@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import 系统批量运维管理器.pexpect
+import pexpect
 import sys
 
 #定义目标主机
@@ -16,7 +16,7 @@ port = "12752"
 target_file = "/var/log/nginx/m.txread.net.access.log"
 
 #运行ssh命令
-child = 系统批量运维管理器.pexpect.spawn('/usr/bin/ssh', ['-p ' + port , user + '@' + ip])
+child = pexpect.spawn('/usr/bin/ssh', ['-p ' + port , user + '@' + ip])
 #输入，输出日志写入mylog.txt文件
 fout = file('mylog.txt','w')
 child.logfile = fout
@@ -35,23 +35,23 @@ try:
     child.sendline('exit')
     fout.close()
 #定义EOF异常处理
-except 系统批量运维管理器.pexpect.EOF:
+except pexpect.EOF:
     print "pexpect EOF"
 #定义TIMEOUT异常处理
-except 系统批量运维管理器.pexpect.TIMEOUT:
+except pexpect.TIMEOUT:
     print "pexpect TIMEOUT"
 
 
 #启动scp远程拷贝命令，实现将打包好的nginx日志复制到本地/tmp目录
-child = 系统批量运维管理器.pexpect.spawn('/usr/bin/scp', ['-P ' + port , user + '@' + ip + ':/tmp/m.txread.net.access.log.tar.gz', '/tmp'])
+child = pexpect.spawn('/usr/bin/scp', ['-P ' + port , user + '@' + ip + ':/tmp/m.txread.net.access.log.tar.gz', '/tmp'])
 fout = file('mylog.txt','a')
 child.logfile = fout
 try:
     #child.pexpect('(?i)password')
     #child.sendline(passwd)
     #匹配缓冲区EOF(结尾)，保证文件复制正常完成
-    child.expect(系统批量运维管理器.pexpect.EOF)
-except 系统批量运维管理器.pexpect.EOF:
+    child.expect(pexpect.EOF)
+except pexpect.EOF:
     print "pexpect EOF"
-except 系统批量运维管理器.pexpect.TIMEOUT:
+except pexpect.TIMEOUT:
     print "pexpect TIMEOUT"

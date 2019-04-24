@@ -3,11 +3,11 @@
 
 #使用unicode编码
 from __future__ import unicode_literals
-import 系统批量运维管理器.pexpect
+import pexpect
 import sys
 
 #运行ftp命令
-child = 系统批量运维管理器.pexpect.spawnu('ftp 127.0.0.1')
+child = pexpect.spawnu('ftp 127.0.0.1')
 #(?i)表示后面的字符串正则匹配忽略大小写
 child.expect('(?i)name .*: ')
 #输入ftp账号信息
