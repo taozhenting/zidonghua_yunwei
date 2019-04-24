@@ -15,7 +15,7 @@ child.sendline('taozhenting')
 #匹配密码输入提示
 child.expect('(?i)password')
 #输入ftp密码
-child.sendline('w59nHD!kt')
+child.sendline('mypasword')
 child.expect('ftp> ')
 #启用二进制传输模式
 child.sendline('bin')
