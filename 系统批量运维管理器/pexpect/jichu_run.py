@@ -5,7 +5,7 @@
 import pexpect
 
 child = pexpect.spawn('scp foo user@example.com:.')
-child.expect('(?i)password')
+child.pexpect('(?i)password')
 child.sendline(mypassword)
 
 #使用run函数实现如下
