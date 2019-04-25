@@ -8,13 +8,13 @@ import sys
 
 env.user = 'root'
 #env.hosts = ['192.168.1.21','192.168.1.22']
-env.hosts = ['47.102.126.128:12752','47.102.126.128:12753']
+env.hosts = ['192.168.239.11:22','192.168.239.12:22']
 #env.port = 12752
 #env.password = 'mypassword'
-ldir = "/var/log/nginx/"
-rdir = "/tmp/test/"
-file = "m.txread.net.access.log"
-tarfile = "m.txread.net.access.log.tar.gz"
+ldir = "/usr/local/src/"
+rdir = "/usr/local/src/"
+file = "mysql57-community-release-el7-11.noarch.rpm"
+tarfile = "mysql57-community-release-el7-11.noarch.rpm.tar.gz"
 
 @task
 @runs_once
